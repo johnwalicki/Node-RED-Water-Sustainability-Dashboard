@@ -35,11 +35,11 @@ These example flows and Node-RED Dashboard might be useful as part of a [Call fo
 
 ## Node-RED flow in this repository:
 
-- Import the [Ridgewood NJ waterbasin flow](rwdnjwatershed.json)
-- Import the [Atlanta GA waterbasin flow](atlantawatershed.json)
+- Import the [Ridgewood NJ waterbasin flow](flows/rwdnjwatershed.json)
+- Import the [Atlanta GA waterbasin flow](flows/atlantawatershed.json)
 
 ---
-### A flow that displays Ridgewood NJ watershed on a map
+### A flow that displays the Ridgewood NJ watershed on a map
 
 ![Watershed Dashboard](screenshots/Node-RED-Ridgewood-Watershed-dashboard.png?raw=true "Ridgewood Watershed Dashboard")
 
@@ -48,7 +48,7 @@ These example flows and Node-RED Dashboard might be useful as part of a [Call fo
 ![Watershed flow](screenshots/Node-RED-Ridgewood-Watershed-flow.png?raw=true "Ridgewood flow")
 
 ---
-### A flow that displays Atlanta GA watershed on a map
+### A flow that displays the Atlanta GA watershed on a map
 
 ![Watershed Dashboard](screenshots/Node-RED-Atlanta-Watershed-dashboard.png?raw=true "Atlanta Watershed Dashboard")
 
