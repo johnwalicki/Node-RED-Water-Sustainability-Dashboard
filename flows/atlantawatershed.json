@@ -7,111 +7,6 @@
         "info": ""
     },
     {
-        "id": "638ddccf.a1722c",
-        "type": "ui_template",
-        "z": "6ce9491a.789d9",
-        "group": "cbfa935f.551c9",
-        "name": "GA Embedded Map",
-        "order": 1,
-        "width": "12",
-        "height": "15",
-        "format": "<div ng-bind-html=\"msg.payload | trusted\"></div>",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": false,
-        "templateScope": "local",
-        "x": 830,
-        "y": 100,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "ffdbcc68.47172",
-        "type": "template",
-        "z": "6ce9491a.789d9",
-        "name": "Add Map to Dashboard",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "<iframe src={{{payload.url}}} height=750px width=630px ></iframe>",
-        "x": 590,
-        "y": 100,
-        "wires": [
-            [
-                "638ddccf.a1722c"
-            ]
-        ]
-    },
-    {
-        "id": "3725f6cd.eb473a",
-        "type": "comment",
-        "z": "6ce9491a.789d9",
-        "name": "One time - Add Map to Dashboard",
-        "info": "",
-        "x": 200,
-        "y": 60,
-        "wires": []
-    },
-    {
-        "id": "8b70b4ba.252758",
-        "type": "inject",
-        "z": "6ce9491a.789d9",
-        "name": "Init WorldMap",
-        "topic": "",
-        "payload": "true",
-        "payloadType": "bool",
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "x": 140,
-        "y": 100,
-        "wires": [
-            [
-                "eeaf5827.982788"
-            ]
-        ]
-    },
-    {
-        "id": "eeaf5827.982788",
-        "type": "function",
-        "z": "6ce9491a.789d9",
-        "name": "Set up /gawatermap",
-        "func": "msg.payload = {};\nmsg.payload.url = \"/gawatermap\";\nmsg.payload.command = {};\n\nmsg.payload.command =   {\n                        layer:\"OSM Grey\",\n                        lat:41.0555556,\n                        lon:-74.1197222,\n                        zoom:5,\n                        map: { name: \"OSM Grey\" }\n                        };\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 360,
-        "y": 100,
-        "wires": [
-            [
-                "ffdbcc68.47172"
-            ]
-        ]
-    },
-    {
-        "id": "43252386.b2cb24",
-        "type": "worldmap",
-        "z": "6ce9491a.789d9",
-        "name": "",
-        "lat": "33.748550",
-        "lon": "-84.391502",
-        "zoom": "11",
-        "layer": "OSM",
-        "cluster": "",
-        "maxage": "",
-        "usermenu": "show",
-        "layers": "show",
-        "panit": "false",
-        "zoomlock": "false",
-        "hiderightclick": "false",
-        "coords": "none",
-        "path": "gawatermap",
-        "x": 1290,
-        "y": 460,
-        "wires": []
-    },
-    {
         "id": "35be25d4.8c17a2",
         "type": "http request",
         "z": "6ce9491a.789d9",
@@ -125,7 +20,7 @@
         "proxy": "",
         "authType": "",
         "x": 670,
-        "y": 400,
+        "y": 320,
         "wires": [
             [
                 "8c270de8.b01df8"
@@ -143,7 +38,7 @@
         "tostatus": false,
         "complete": "false",
         "x": 1290,
-        "y": 400,
+        "y": 320,
         "wires": []
     },
     {
@@ -157,7 +52,7 @@
         "tostatus": false,
         "complete": "false",
         "x": 1290,
-        "y": 220,
+        "y": 140,
         "wires": []
     },
     {
@@ -167,7 +62,7 @@
         "name": "Find your water basin - https://waterdata.usgs.gov/blog/nldi-intro/",
         "info": "",
         "x": 390,
-        "y": 480,
+        "y": 400,
         "wires": []
     },
     {
@@ -177,7 +72,7 @@
         "name": "Find your stream - USGS",
         "info": "\nhttps://waterdata.usgs.gov/nwis/inventory?state_cd=nj&format=station_list&group_key=NONE&list_of_search_criteria=state_cd",
         "x": 270,
-        "y": 380,
+        "y": 300,
         "wires": []
     },
     {
@@ -187,7 +82,7 @@
         "name": "Zip code boundaries for each of the 50 states",
         "info": "Grab your town area map geojson from these\nmassive tables.\nhttps://github.com/OpenDataDE/State-zip-code-GeoJSON\n\nWould be cool if it looked like this:\nhttp://maps.huge.info/zip.htm",
         "x": 330,
-        "y": 200,
+        "y": 120,
         "wires": []
     },
     {
@@ -214,7 +109,7 @@
         "officon": "fa-building",
         "offcolor": "grey",
         "x": 220,
-        "y": 240,
+        "y": 160,
         "wires": [
             [
                 "937a0ab7.cde62"
@@ -240,7 +135,7 @@
         "repair": false,
         "outputs": 2,
         "x": 450,
-        "y": 240,
+        "y": 160,
         "wires": [
             [
                 "a9c8ab1c.c15078"
@@ -274,7 +169,7 @@
         "officon": "fa-tint",
         "offcolor": "grey",
         "x": 230,
-        "y": 420,
+        "y": 340,
         "wires": [
             [
                 "86d198fb.8b7898"
@@ -305,7 +200,7 @@
         "officon": "fa-tint",
         "offcolor": "grey",
         "x": 220,
-        "y": 1760,
+        "y": 1680,
         "wires": [
             [
                 "377af107.f104be"
@@ -331,7 +226,7 @@
         "repair": false,
         "outputs": 2,
         "x": 450,
-        "y": 1760,
+        "y": 1680,
         "wires": [
             [
                 "86fee6c8.e539d8",
@@ -365,7 +260,7 @@
         "repair": false,
         "outputs": 2,
         "x": 450,
-        "y": 420,
+        "y": 340,
         "wires": [
             [
                 "35be25d4.8c17a2",
@@ -403,10 +298,10 @@
         "to": "",
         "reg": false,
         "x": 950,
-        "y": 260,
+        "y": 180,
         "wires": [
             [
-                "43252386.b2cb24"
+                "95a0817.07e77"
             ]
         ]
     },
@@ -420,7 +315,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "{\"command\":{\"hidelayer\":[\"HohokusWaterBasin\",\"HohokusBrook\"]}}",
+                "to": "{\"command\":{\"hidelayer\":[\"UtoyCreekWaterBasin\",\"UtoyCreek\"]}}",
                 "tot": "json"
             }
         ],
@@ -430,10 +325,10 @@
         "to": "",
         "reg": false,
         "x": 990,
-        "y": 440,
+        "y": 360,
         "wires": [
             [
-                "43252386.b2cb24"
+                "95a0817.07e77"
             ]
         ]
     },
@@ -457,10 +352,10 @@
         "to": "",
         "reg": false,
         "x": 1030,
-        "y": 1780,
+        "y": 1700,
         "wires": [
             [
-                "43252386.b2cb24"
+                "95a0817.07e77"
             ]
         ]
     },
@@ -477,7 +372,7 @@
         "once": true,
         "onceDelay": 0.1,
         "x": 90,
-        "y": 160,
+        "y": 80,
         "wires": [
             [
                 "d45120b4.469b68",
@@ -500,15 +395,15 @@
         "type": "function",
         "z": "6ce9491a.789d9",
         "name": "Draw Water Basin map",
-        "func": "// Add some simple-spec styling to this polygon area\nvar properties = { \n    \"stroke\" : \"blue\",\n    \"stroke-width\": 5,\n    \"fill\": \"#0000FF\",\n    \"fill-opacity\": 0.4\n}\nmsg.payload.features[0].properties = properties;\n\nmsg.payload = { name: \"HohokusWaterBasin\",\n                layer:\"HohokusWaterBasin\",\n                geojson:msg.payload\n              };    \nreturn msg;",
+        "func": "// Add some simple-spec styling to this polygon area\nvar properties = { \n    \"stroke\" : \"blue\",\n    \"stroke-width\": 5,\n    \"fill\": \"#0000FF\",\n    \"fill-opacity\": 0.4\n}\nmsg.payload.features[0].properties = properties;\n\nmsg.payload = { name: \"UtoyCreekWaterBasin\",\n                layer:\"UtoyCreekWaterBasin\",\n                geojson:msg.payload\n              };    \nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 980,
-        "y": 400,
+        "y": 320,
         "wires": [
             [
-                "43252386.b2cb24",
-                "2040d41.2f66e2c"
+                "2040d41.2f66e2c",
+                "95a0817.07e77"
             ]
         ]
     },
@@ -529,14 +424,14 @@
                 "t": "set",
                 "p": "payload.layer",
                 "pt": "msg",
-                "to": "HohokusBrook",
+                "to": "UtoyCreek",
                 "tot": "str"
             },
             {
                 "t": "set",
                 "p": "payload.name",
                 "pt": "msg",
-                "to": "HohokusBrook",
+                "to": "UtoyCreek",
                 "tot": "str"
             },
             {
@@ -560,10 +455,10 @@
         "to": "",
         "reg": false,
         "x": 970,
-        "y": 360,
+        "y": 280,
         "wires": [
             [
-                "43252386.b2cb24"
+                "95a0817.07e77"
             ]
         ]
     },
@@ -581,7 +476,7 @@
         "proxy": "",
         "authType": "",
         "x": 630,
-        "y": 360,
+        "y": 280,
         "wires": [
             [
                 "5419c1a.6a27f4"
@@ -615,7 +510,7 @@
         "cancel": "cancel",
         "topic": "",
         "x": 250,
-        "y": 2280,
+        "y": 2160,
         "wires": [
             [
                 "95c535ae.9c6f5",
@@ -637,7 +532,7 @@
         "proxy": "",
         "authType": "",
         "x": 760,
-        "y": 2300,
+        "y": 2180,
         "wires": [
             [
                 "627a42af.dfe384",
@@ -658,7 +553,7 @@
         "complete": "true",
         "targetType": "full",
         "x": 950,
-        "y": 2340,
+        "y": 2220,
         "wires": []
     },
     {
@@ -670,7 +565,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 540,
-        "y": 2300,
+        "y": 2180,
         "wires": [
             [
                 "cee87fe7.fa7888"
@@ -741,7 +636,7 @@
         "outputs": 1,
         "cts": true,
         "x": 1220,
-        "y": 2300,
+        "y": 2180,
         "wires": [
             [
                 "121611ef.a964f6"
@@ -761,7 +656,7 @@
         "once": false,
         "onceDelay": 0.1,
         "x": 290,
-        "y": 2320,
+        "y": 2200,
         "wires": [
             [
                 "95c535ae.9c6f5"
@@ -823,11 +718,11 @@
         "to": "",
         "reg": false,
         "x": 970,
-        "y": 2260,
+        "y": 2140,
         "wires": [
             [
-                "43252386.b2cb24",
-                "484b28c3.7ec138"
+                "484b28c3.7ec138",
+                "95a0817.07e77"
             ]
         ]
     },
@@ -840,7 +735,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 980,
-        "y": 2300,
+        "y": 2180,
         "wires": [
             [
                 "b831ce15.09448"
@@ -858,7 +753,7 @@
         "tostatus": false,
         "complete": "false",
         "x": 1210,
-        "y": 2260,
+        "y": 2140,
         "wires": []
     },
     {
@@ -888,7 +783,7 @@
         "to": "",
         "reg": false,
         "x": 1230,
-        "y": 2340,
+        "y": 2220,
         "wires": [
             [
                 "611110ae.4d8398"
@@ -910,7 +805,7 @@
         "topic": "",
         "name": "",
         "x": 1210,
-        "y": 2380,
+        "y": 2260,
         "wires": [
             []
         ]
@@ -940,10 +835,10 @@
         "to": "",
         "reg": false,
         "x": 990,
-        "y": 2220,
+        "y": 2100,
         "wires": [
             [
-                "43252386.b2cb24"
+                "95a0817.07e77"
             ]
         ]
     },
@@ -960,7 +855,7 @@
         "once": false,
         "onceDelay": 0.1,
         "x": 660,
-        "y": 2220,
+        "y": 2100,
         "wires": [
             [
                 "d6efc3c9.696d2"
@@ -981,7 +876,7 @@
         "proxy": "",
         "authType": "",
         "x": 710,
-        "y": 2100,
+        "y": 1960,
         "wires": [
             [
                 "b9432ae1.37b59"
@@ -997,11 +892,11 @@
         "outputs": 1,
         "noerr": 0,
         "x": 1000,
-        "y": 2100,
+        "y": 1960,
         "wires": [
             [
                 "db8ea075.1e9b28",
-                "43252386.b2cb24"
+                "95a0817.07e77"
             ]
         ]
     },
@@ -1015,8 +910,8 @@
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 1310,
-        "y": 2100,
+        "x": 1290,
+        "y": 1960,
         "wires": []
     },
     {
@@ -1043,7 +938,7 @@
         "officon": "fa-tint",
         "offcolor": "grey",
         "x": 230,
-        "y": 2120,
+        "y": 1980,
         "wires": [
             [
                 "cca5eee.406ac9"
@@ -1069,7 +964,7 @@
         "repair": false,
         "outputs": 2,
         "x": 470,
-        "y": 2120,
+        "y": 1980,
         "wires": [
             [
                 "780b13c3.1af2d4",
@@ -1100,10 +995,10 @@
         "to": "",
         "reg": false,
         "x": 1030,
-        "y": 2140,
+        "y": 2000,
         "wires": [
             [
-                "43252386.b2cb24"
+                "95a0817.07e77"
             ]
         ]
     },
@@ -1155,10 +1050,10 @@
         "to": "",
         "reg": false,
         "x": 990,
-        "y": 2060,
+        "y": 1920,
         "wires": [
             [
-                "43252386.b2cb24"
+                "95a0817.07e77"
             ]
         ]
     },
@@ -1176,7 +1071,7 @@
         "proxy": "",
         "authType": "",
         "x": 680,
-        "y": 2060,
+        "y": 1920,
         "wires": [
             [
                 "840d8f18.7fa7c8"
@@ -1197,7 +1092,7 @@
         "proxy": "",
         "authType": "",
         "x": 670,
-        "y": 1900,
+        "y": 1820,
         "wires": [
             [
                 "7ccf6905.378818"
@@ -1213,11 +1108,11 @@
         "outputs": 1,
         "noerr": 0,
         "x": 980,
-        "y": 1900,
+        "y": 1820,
         "wires": [
             [
                 "13133d09.1d729b",
-                "43252386.b2cb24"
+                "95a0817.07e77"
             ]
         ]
     },
@@ -1232,7 +1127,7 @@
         "tostatus": false,
         "complete": "false",
         "x": 1290,
-        "y": 1900,
+        "y": 1820,
         "wires": []
     },
     {
@@ -1259,7 +1154,7 @@
         "officon": "fa-tint",
         "offcolor": "grey",
         "x": 200,
-        "y": 1920,
+        "y": 1840,
         "wires": [
             [
                 "7fb4ab56.db71ac"
@@ -1285,7 +1180,7 @@
         "repair": false,
         "outputs": 2,
         "x": 450,
-        "y": 1920,
+        "y": 1840,
         "wires": [
             [
                 "356f9a6a.eff6c6",
@@ -1316,10 +1211,10 @@
         "to": "",
         "reg": false,
         "x": 1010,
-        "y": 1940,
+        "y": 1860,
         "wires": [
             [
-                "43252386.b2cb24"
+                "95a0817.07e77"
             ]
         ]
     },
@@ -1371,10 +1266,10 @@
         "to": "",
         "reg": false,
         "x": 970,
-        "y": 1860,
+        "y": 1780,
         "wires": [
             [
-                "43252386.b2cb24"
+                "95a0817.07e77"
             ]
         ]
     },
@@ -1392,7 +1287,7 @@
         "proxy": "",
         "authType": "",
         "x": 640,
-        "y": 1860,
+        "y": 1780,
         "wires": [
             [
                 "f642dd0.30fbaa"
@@ -1413,7 +1308,7 @@
         "proxy": "",
         "authType": "",
         "x": 700,
-        "y": 1160,
+        "y": 1080,
         "wires": [
             [
                 "84e750a0.e2879"
@@ -1429,11 +1324,11 @@
         "outputs": 1,
         "noerr": 0,
         "x": 980,
-        "y": 1160,
+        "y": 1080,
         "wires": [
             [
                 "d1407f3e.91cb38",
-                "43252386.b2cb24"
+                "95a0817.07e77"
             ]
         ]
     },
@@ -1448,7 +1343,7 @@
         "tostatus": false,
         "complete": "false",
         "x": 1290,
-        "y": 1160,
+        "y": 1080,
         "wires": []
     },
     {
@@ -1475,7 +1370,7 @@
         "officon": "fa-tint",
         "offcolor": "grey",
         "x": 200,
-        "y": 1180,
+        "y": 1100,
         "wires": [
             [
                 "6cf9d803.7f7ca8"
@@ -1501,7 +1396,7 @@
         "repair": false,
         "outputs": 2,
         "x": 450,
-        "y": 1180,
+        "y": 1100,
         "wires": [
             [
                 "e7c6ee6a.88c708",
@@ -1532,10 +1427,10 @@
         "to": "",
         "reg": false,
         "x": 1030,
-        "y": 1200,
+        "y": 1120,
         "wires": [
             [
-                "43252386.b2cb24"
+                "95a0817.07e77"
             ]
         ]
     },
@@ -1587,10 +1482,10 @@
         "to": "",
         "reg": false,
         "x": 1000,
-        "y": 1120,
+        "y": 1040,
         "wires": [
             [
-                "43252386.b2cb24"
+                "95a0817.07e77"
             ]
         ]
     },
@@ -1608,7 +1503,7 @@
         "proxy": "",
         "authType": "",
         "x": 660,
-        "y": 1120,
+        "y": 1040,
         "wires": [
             [
                 "d4ea64bd.20646"
@@ -1629,7 +1524,7 @@
         "proxy": "",
         "authType": "",
         "x": 700,
-        "y": 1660,
+        "y": 1580,
         "wires": [
             [
                 "8b8692b8.a6f2a8"
@@ -1645,11 +1540,11 @@
         "outputs": 1,
         "noerr": 0,
         "x": 980,
-        "y": 1660,
+        "y": 1580,
         "wires": [
             [
                 "a9c0ed58.fd66f",
-                "43252386.b2cb24"
+                "95a0817.07e77"
             ]
         ]
     },
@@ -1664,7 +1559,7 @@
         "tostatus": false,
         "complete": "false",
         "x": 1290,
-        "y": 1660,
+        "y": 1580,
         "wires": []
     },
     {
@@ -1715,10 +1610,10 @@
         "to": "",
         "reg": false,
         "x": 1000,
-        "y": 1620,
+        "y": 1540,
         "wires": [
             [
-                "43252386.b2cb24"
+                "95a0817.07e77"
             ]
         ]
     },
@@ -1736,7 +1631,7 @@
         "proxy": "",
         "authType": "",
         "x": 660,
-        "y": 1620,
+        "y": 1540,
         "wires": [
             [
                 "3b22dd6e.3cc87a"
@@ -1757,7 +1652,7 @@
         "proxy": "",
         "authType": "",
         "x": 700,
-        "y": 1580,
+        "y": 1500,
         "wires": [
             [
                 "a2d5762b.9602b"
@@ -1773,11 +1668,11 @@
         "outputs": 1,
         "noerr": 0,
         "x": 980,
-        "y": 1580,
+        "y": 1500,
         "wires": [
             [
                 "deaed5dc.af2ac",
-                "43252386.b2cb24"
+                "95a0817.07e77"
             ]
         ]
     },
@@ -1792,7 +1687,7 @@
         "tostatus": false,
         "complete": "false",
         "x": 1290,
-        "y": 1580,
+        "y": 1500,
         "wires": []
     },
     {
@@ -1843,10 +1738,10 @@
         "to": "",
         "reg": false,
         "x": 1000,
-        "y": 1540,
+        "y": 1460,
         "wires": [
             [
-                "43252386.b2cb24"
+                "95a0817.07e77"
             ]
         ]
     },
@@ -1864,7 +1759,7 @@
         "proxy": "",
         "authType": "",
         "x": 660,
-        "y": 1540,
+        "y": 1460,
         "wires": [
             [
                 "281d18e8.d09928"
@@ -1885,7 +1780,7 @@
         "proxy": "",
         "authType": "",
         "x": 700,
-        "y": 1740,
+        "y": 1660,
         "wires": [
             [
                 "fc23025.2cce08"
@@ -1901,11 +1796,11 @@
         "outputs": 1,
         "noerr": 0,
         "x": 980,
-        "y": 1740,
+        "y": 1660,
         "wires": [
             [
                 "d91f0517.8b1aa8",
-                "43252386.b2cb24"
+                "95a0817.07e77"
             ]
         ]
     },
@@ -1920,7 +1815,7 @@
         "tostatus": false,
         "complete": "false",
         "x": 1290,
-        "y": 1740,
+        "y": 1660,
         "wires": []
     },
     {
@@ -1971,10 +1866,10 @@
         "to": "",
         "reg": false,
         "x": 1000,
-        "y": 1700,
+        "y": 1620,
         "wires": [
             [
-                "43252386.b2cb24"
+                "95a0817.07e77"
             ]
         ]
     },
@@ -1992,7 +1887,7 @@
         "proxy": "",
         "authType": "",
         "x": 660,
-        "y": 1700,
+        "y": 1620,
         "wires": [
             [
                 "922da9f8.5f3e38"
@@ -2023,7 +1918,7 @@
         "officon": "fa-tint",
         "offcolor": "grey",
         "x": 190,
-        "y": 1460,
+        "y": 1380,
         "wires": [
             [
                 "71882bdc.65ad74"
@@ -2049,7 +1944,7 @@
         "repair": false,
         "outputs": 2,
         "x": 450,
-        "y": 1460,
+        "y": 1380,
         "wires": [
             [
                 "b0be0bc2.a6e5a8",
@@ -2080,10 +1975,10 @@
         "to": "",
         "reg": false,
         "x": 1010,
-        "y": 1480,
+        "y": 1400,
         "wires": [
             [
-                "43252386.b2cb24"
+                "95a0817.07e77"
             ]
         ]
     },
@@ -2101,7 +1996,7 @@
         "proxy": "",
         "authType": "",
         "x": 670,
-        "y": 1440,
+        "y": 1360,
         "wires": [
             [
                 "4a0483c7.342f74"
@@ -2117,11 +2012,11 @@
         "outputs": 1,
         "noerr": 0,
         "x": 980,
-        "y": 1440,
+        "y": 1360,
         "wires": [
             [
                 "bb7a2051.9b645",
-                "43252386.b2cb24"
+                "95a0817.07e77"
             ]
         ]
     },
@@ -2136,7 +2031,7 @@
         "tostatus": false,
         "complete": "false",
         "x": 1290,
-        "y": 1440,
+        "y": 1360,
         "wires": []
     },
     {
@@ -2187,10 +2082,10 @@
         "to": "",
         "reg": false,
         "x": 970,
-        "y": 1400,
+        "y": 1320,
         "wires": [
             [
-                "43252386.b2cb24"
+                "95a0817.07e77"
             ]
         ]
     },
@@ -2208,7 +2103,7 @@
         "proxy": "",
         "authType": "",
         "x": 640,
-        "y": 1400,
+        "y": 1320,
         "wires": [
             [
                 "8cc5b572.bb8988"
@@ -2239,7 +2134,7 @@
         "officon": "fa-tint",
         "offcolor": "grey",
         "x": 210,
-        "y": 1320,
+        "y": 1240,
         "wires": [
             [
                 "3b989de9.db2342"
@@ -2265,7 +2160,7 @@
         "repair": false,
         "outputs": 2,
         "x": 450,
-        "y": 1320,
+        "y": 1240,
         "wires": [
             [
                 "3990c918.716fc6",
@@ -2296,10 +2191,10 @@
         "to": "",
         "reg": false,
         "x": 1030,
-        "y": 1340,
+        "y": 1260,
         "wires": [
             [
-                "43252386.b2cb24"
+                "95a0817.07e77"
             ]
         ]
     },
@@ -2317,7 +2212,7 @@
         "proxy": "",
         "authType": "",
         "x": 690,
-        "y": 1300,
+        "y": 1220,
         "wires": [
             [
                 "126a3baf.4ec114"
@@ -2333,11 +2228,11 @@
         "outputs": 1,
         "noerr": 0,
         "x": 980,
-        "y": 1300,
+        "y": 1220,
         "wires": [
             [
                 "6c7d680c.bd0d68",
-                "43252386.b2cb24"
+                "95a0817.07e77"
             ]
         ]
     },
@@ -2352,7 +2247,7 @@
         "tostatus": false,
         "complete": "false",
         "x": 1290,
-        "y": 1300,
+        "y": 1220,
         "wires": []
     },
     {
@@ -2403,10 +2298,10 @@
         "to": "",
         "reg": false,
         "x": 990,
-        "y": 1260,
+        "y": 1180,
         "wires": [
             [
-                "43252386.b2cb24"
+                "95a0817.07e77"
             ]
         ]
     },
@@ -2424,7 +2319,7 @@
         "proxy": "",
         "authType": "",
         "x": 650,
-        "y": 1260,
+        "y": 1180,
         "wires": [
             [
                 "afa4617c.c16cc"
@@ -2486,11 +2381,11 @@
         "to": "",
         "reg": false,
         "x": 930,
-        "y": 220,
+        "y": 140,
         "wires": [
             [
-                "43252386.b2cb24",
-                "90dcbd0b.35f9d"
+                "90dcbd0b.35f9d",
+                "95a0817.07e77"
             ]
         ]
     },
@@ -2508,7 +2403,7 @@
         "proxy": "",
         "authType": "",
         "x": 670,
-        "y": 1020,
+        "y": 940,
         "wires": [
             [
                 "cde39a17.efd268"
@@ -2524,11 +2419,11 @@
         "outputs": 1,
         "noerr": 0,
         "x": 980,
-        "y": 1020,
+        "y": 940,
         "wires": [
             [
                 "cc660dd3.189c38",
-                "43252386.b2cb24"
+                "95a0817.07e77"
             ]
         ]
     },
@@ -2543,7 +2438,7 @@
         "tostatus": false,
         "complete": "false",
         "x": 1290,
-        "y": 1020,
+        "y": 940,
         "wires": []
     },
     {
@@ -2570,7 +2465,7 @@
         "officon": "fa-tint",
         "offcolor": "grey",
         "x": 190,
-        "y": 1040,
+        "y": 960,
         "wires": [
             [
                 "69fc41bc.b32a8"
@@ -2596,7 +2491,7 @@
         "repair": false,
         "outputs": 2,
         "x": 450,
-        "y": 1040,
+        "y": 960,
         "wires": [
             [
                 "447bf88b.6c91e8",
@@ -2627,10 +2522,10 @@
         "to": "",
         "reg": false,
         "x": 1010,
-        "y": 1060,
+        "y": 980,
         "wires": [
             [
-                "43252386.b2cb24"
+                "95a0817.07e77"
             ]
         ]
     },
@@ -2682,10 +2577,10 @@
         "to": "",
         "reg": false,
         "x": 970,
-        "y": 980,
+        "y": 900,
         "wires": [
             [
-                "43252386.b2cb24"
+                "95a0817.07e77"
             ]
         ]
     },
@@ -2703,7 +2598,7 @@
         "proxy": "",
         "authType": "",
         "x": 630,
-        "y": 980,
+        "y": 900,
         "wires": [
             [
                 "76ad4585.e50a44"
@@ -2724,7 +2619,7 @@
         "proxy": "",
         "authType": "",
         "x": 670,
-        "y": 888,
+        "y": 808,
         "wires": [
             [
                 "46a8192f.de2b5"
@@ -2740,11 +2635,11 @@
         "outputs": 1,
         "noerr": 0,
         "x": 980,
-        "y": 888,
+        "y": 808,
         "wires": [
             [
                 "db730192.30fff8",
-                "43252386.b2cb24"
+                "95a0817.07e77"
             ]
         ]
     },
@@ -2759,7 +2654,7 @@
         "tostatus": false,
         "complete": "false",
         "x": 1290,
-        "y": 888,
+        "y": 808,
         "wires": []
     },
     {
@@ -2786,7 +2681,7 @@
         "officon": "fa-tint",
         "offcolor": "grey",
         "x": 190,
-        "y": 908,
+        "y": 828,
         "wires": [
             [
                 "55c7af4d.0d4a4"
@@ -2812,7 +2707,7 @@
         "repair": false,
         "outputs": 2,
         "x": 450,
-        "y": 908,
+        "y": 828,
         "wires": [
             [
                 "a1479697.3267",
@@ -2845,10 +2740,10 @@
         "to": "",
         "reg": false,
         "x": 1010,
-        "y": 928,
+        "y": 848,
         "wires": [
             [
-                "43252386.b2cb24"
+                "95a0817.07e77"
             ]
         ]
     },
@@ -2900,10 +2795,10 @@
         "to": "",
         "reg": false,
         "x": 970,
-        "y": 848,
+        "y": 768,
         "wires": [
             [
-                "43252386.b2cb24"
+                "95a0817.07e77"
             ]
         ]
     },
@@ -2921,7 +2816,7 @@
         "proxy": "",
         "authType": "",
         "x": 630,
-        "y": 848,
+        "y": 768,
         "wires": [
             [
                 "f4d1210f.850b2"
@@ -2942,7 +2837,7 @@
         "proxy": "",
         "authType": "",
         "x": 680,
-        "y": 800,
+        "y": 720,
         "wires": [
             [
                 "d463fc42.68253"
@@ -2958,10 +2853,10 @@
         "outputs": 1,
         "noerr": 0,
         "x": 980,
-        "y": 800,
+        "y": 720,
         "wires": [
             [
-                "43252386.b2cb24"
+                "95a0817.07e77"
             ]
         ]
     },
@@ -3013,10 +2908,10 @@
         "to": "",
         "reg": false,
         "x": 970,
-        "y": 760,
+        "y": 680,
         "wires": [
             [
-                "43252386.b2cb24"
+                "95a0817.07e77"
             ]
         ]
     },
@@ -3034,7 +2929,7 @@
         "proxy": "",
         "authType": "",
         "x": 640,
-        "y": 760,
+        "y": 680,
         "wires": [
             [
                 "fbc2936b.6e195"
@@ -3055,7 +2950,7 @@
         "proxy": "",
         "authType": "",
         "x": 660,
-        "y": 680,
+        "y": 600,
         "wires": [
             [
                 "9d511e34.a57b08"
@@ -3071,11 +2966,11 @@
         "outputs": 1,
         "noerr": 0,
         "x": 980,
-        "y": 680,
+        "y": 600,
         "wires": [
             [
                 "455a161b.5d68a",
-                "43252386.b2cb24"
+                "95a0817.07e77"
             ]
         ]
     },
@@ -3090,7 +2985,7 @@
         "tostatus": false,
         "complete": "false",
         "x": 1290,
-        "y": 680,
+        "y": 600,
         "wires": []
     },
     {
@@ -3117,7 +3012,7 @@
         "officon": "fa-tint",
         "offcolor": "grey",
         "x": 180,
-        "y": 700,
+        "y": 620,
         "wires": [
             [
                 "b1003e18.3e7fd8"
@@ -3143,7 +3038,7 @@
         "repair": false,
         "outputs": 2,
         "x": 450,
-        "y": 700,
+        "y": 620,
         "wires": [
             [
                 "e2aaecf4.ba1d4",
@@ -3174,10 +3069,10 @@
         "to": "",
         "reg": false,
         "x": 1000,
-        "y": 720,
+        "y": 640,
         "wires": [
             [
-                "43252386.b2cb24"
+                "95a0817.07e77"
             ]
         ]
     },
@@ -3229,10 +3124,10 @@
         "to": "",
         "reg": false,
         "x": 960,
-        "y": 640,
+        "y": 560,
         "wires": [
             [
-                "43252386.b2cb24"
+                "95a0817.07e77"
             ]
         ]
     },
@@ -3250,7 +3145,7 @@
         "proxy": "",
         "authType": "",
         "x": 630,
-        "y": 640,
+        "y": 560,
         "wires": [
             [
                 "ce95b6e3.a20678"
@@ -3270,8 +3165,8 @@
         "persist": false,
         "proxy": "",
         "authType": "",
-        "x": 750,
-        "y": 2540,
+        "x": 670,
+        "y": 2460,
         "wires": [
             [
                 "b938a161.62b038",
@@ -3283,7 +3178,7 @@
         "id": "bce0f2ab.9a5ae",
         "type": "inject",
         "z": "6ce9491a.789d9",
-        "name": "",
+        "name": "StreamStat test",
         "topic": "",
         "payload": "",
         "payloadType": "date",
@@ -3291,8 +3186,8 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "x": 460,
-        "y": 2540,
+        "x": 480,
+        "y": 2460,
         "wires": [
             [
                 "fa0eeb2d.0d1d1"
@@ -3309,8 +3204,8 @@
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 970,
-        "y": 2580,
+        "x": 1010,
+        "y": 2500,
         "wires": []
     },
     {
@@ -3321,12 +3216,12 @@
         "func": "// Add some simple-spec styling to this polygon area\nvar properties = { \n    \"stroke\" : \"orange\",\n    \"stroke-width\": 5,\n    \"fill\": \"orange\",\n    \"fill-opacity\": 0.4\n}\nmsg.payload.featurecollection[1].feature.features[0].properties = properties;\ndelete msg.payload.featurecollection[1].feature.crs\ndelete msg.payload.featurecollection[1].feature.features[0].bbox\n\nmsg.payload = { name: \"SmyrnaWaterBasin\",\n                layer:\"SmyrnaWaterBasin\",\n                geojson:msg.payload.featurecollection[1].feature\n              };\n              \ndelete msg.payload.geojson.features[0].geometry.coordinates[1];\ndelete msg.payload.geojson.features[0].geometry.coordinates[2];\ndelete msg.payload.geojson.features[0].geometry.coordinates[3];  \ndelete msg.payload.geojson.features[0].geometry.coordinates[4];  \ndelete msg.payload.geojson.features[0].geometry.coordinates[5];  \nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1010,
-        "y": 2540,
+        "x": 990,
+        "y": 2460,
         "wires": [
             [
-                "43252386.b2cb24",
-                "f9140be1.e032c8"
+                "f9140be1.e032c8",
+                "95a0817.07e77"
             ]
         ]
     },
@@ -3340,8 +3235,8 @@
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 1190,
-        "y": 2540,
+        "x": 1210,
+        "y": 2460,
         "wires": []
     },
     {
@@ -3358,7 +3253,7 @@
         "proxy": "",
         "authType": "",
         "x": 690,
-        "y": 560,
+        "y": 480,
         "wires": [
             [
                 "e65e8787.e192c8"
@@ -3374,11 +3269,11 @@
         "outputs": 1,
         "noerr": 0,
         "x": 980,
-        "y": 560,
+        "y": 480,
         "wires": [
             [
                 "78bffc78.a5c0ec",
-                "43252386.b2cb24"
+                "95a0817.07e77"
             ]
         ]
     },
@@ -3393,7 +3288,7 @@
         "tostatus": false,
         "complete": "false",
         "x": 1290,
-        "y": 560,
+        "y": 480,
         "wires": []
     },
     {
@@ -3420,7 +3315,7 @@
         "officon": "fa-tint",
         "offcolor": "grey",
         "x": 210,
-        "y": 580,
+        "y": 500,
         "wires": [
             [
                 "9b649bcf.db797"
@@ -3446,7 +3341,7 @@
         "repair": false,
         "outputs": 2,
         "x": 450,
-        "y": 580,
+        "y": 500,
         "wires": [
             [
                 "7395ac0e.70f6fc",
@@ -3477,10 +3372,10 @@
         "to": "",
         "reg": false,
         "x": 1020,
-        "y": 600,
+        "y": 520,
         "wires": [
             [
-                "43252386.b2cb24"
+                "95a0817.07e77"
             ]
         ]
     },
@@ -3532,10 +3427,10 @@
         "to": "",
         "reg": false,
         "x": 980,
-        "y": 520,
+        "y": 440,
         "wires": [
             [
-                "43252386.b2cb24"
+                "95a0817.07e77"
             ]
         ]
     },
@@ -3553,7 +3448,7 @@
         "proxy": "",
         "authType": "",
         "x": 650,
-        "y": 520,
+        "y": 440,
         "wires": [
             [
                 "b5c3e327.703b7"
@@ -3561,15 +3456,42 @@
         ]
     },
     {
-        "id": "cbfa935f.551c9",
-        "type": "ui_group",
+        "id": "95a0817.07e77",
+        "type": "ui_worldmap",
         "z": "6ce9491a.789d9",
-        "name": "Atlanta and Water Basins",
-        "tab": "4fae9226.9fa9cc",
-        "order": 2,
-        "disp": true,
+        "group": "cbfa935f.551c9",
+        "order": 13,
         "width": "12",
-        "collapse": false
+        "height": "15",
+        "name": "",
+        "lat": "33.748550",
+        "lon": "-84.391502",
+        "zoom": "11",
+        "layer": "OSM",
+        "cluster": "",
+        "maxage": "",
+        "usermenu": "hide",
+        "layers": "show",
+        "panit": "false",
+        "panlock": "false",
+        "zoomlock": "false",
+        "hiderightclick": "true",
+        "coords": "none",
+        "showgrid": "false",
+        "path": "/gawatermap",
+        "x": 1290,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "597472df.75efd4",
+        "type": "comment",
+        "z": "6ce9491a.789d9",
+        "name": "Initialize the map legend to off",
+        "info": "",
+        "x": 140,
+        "y": 40,
+        "wires": []
     },
     {
         "id": "d3dd8357.94cad8",
@@ -3591,6 +3513,17 @@
         "order": 3,
         "disp": true,
         "width": "11",
+        "collapse": false
+    },
+    {
+        "id": "cbfa935f.551c9",
+        "type": "ui_group",
+        "z": "6ce9491a.789d9",
+        "name": "Atlanta and Water Basins",
+        "tab": "4fae9226.9fa9cc",
+        "order": 2,
+        "disp": true,
+        "width": "12",
         "collapse": false
     },
     {
