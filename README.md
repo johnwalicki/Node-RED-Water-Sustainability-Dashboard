@@ -6,7 +6,7 @@ and [Atlanta, GA watershed](https://www.atlantawatershed.org/) using the
 [USGS Hydro Network-Linked Data Index](https://waterdata.usgs.gov/blog/nldi-intro/)
 and plot the water basins and rivers on a [Node-RED](https://nodered.org) Dashboard.  
 
-The USGS [NLDI API](https://labs.waterdata.usgs.gov/api/nldi/swagger-ui.html) returns a [geojson](https://en.wikipedia.org/wiki/GeoJSON) set of latitude / longitude coordinates that can be plotted using the node-red-contrib-web-worldmap node.  You can [search for a river](https://waterdata.usgs.gov/nwis/inventory?state_cd=nj&format=station_list) near you.
+The USGS [NLDI API](https://labs.waterdata.usgs.gov/api/nldi/swagger-ui.html) returns a [geojson](https://en.wikipedia.org/wiki/GeoJSON) set of latitude / longitude coordinates that can be plotted using the node-red-contrib-web-worldmap node.  You can [search for a river](https://waterdata.usgs.gov/nwis/inventory?state_cd=nj&format=station_list) near you.  To generate your own map visit - http://geojson.io - which allows you to quickly generate a geojson file.
 
 The dashboard includes several colored map legend switches to show / hide the watershed details.
 
